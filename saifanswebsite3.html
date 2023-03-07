@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Poor Story', cursive;
+  margin: 0 auto;
+  max-width: 600px;
+  background: url("https://media.architecturaldigest.com/photos/572a34ffe50e09d42bdfb5e0/master/w_1920%2Cc_limit/japanese-restaurants-la-01.jpg");
+  
+}
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+  color: #193EF5;
+}
+h1 {
+  font-family: 'Island Moments', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #798;
+  margin: 60px 0 0 0;
+  
+}
+h2 {
+  text-align: center;
+  color: #798;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: #F51973;
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(25,0,255,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4
+  font-family: 'Poor Story', cursive;
+));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+input {
+  border: 0;
+  padding: 10px;
+  font-size: 18px;
+  font-family: 'Fragment Mono', monospace;
+}
+input[type="submit"] {
+  background: #8719F5;
+  color: #19F5CA;
+}
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2020/11/Picco-mac-and-cheese.jpg");
+}
+.second{
+  background-image: url("https://img.taste.com.au/d-poOSFk/w643-h428-cfill-q90/taste/2016/11/paprika-beef-steaks-with-chimichurri-sauce-and-wedges-102931-1.jpeg");
+}
+.dessert{
+  background-image: url("https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_677,q_85,w_1280/v1/clients/raleigh/105721513_2836234529838121_1191785457980744333_o_a001753f-a2b9-4593-9531-a89f329d32fb.jpg");
+}
+.price {
+  float: right;
+}
+input {
+	font-size: 22px;
+}
+
+
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>The Shah Steakhouse</h1>
+<h2>a New York City eatery</h2>
+<div class="first"> <input class="quantities" type="number" min="0" style="width: 50px">
+  <p>macaroni and cheese <span class="price">$14</span><br />
+  <small>Made out pf four cheeses mozzarella, pepper jack, chedder, and and feta topper off with vread crumbs.   </small></p>
+</div>
+
+<div class="second"> <input class="quantities" type="number" min="0" style="width: 50px">
+  <p>Steak and Wedges<span class="price">$22</span><br />
+  <small>Steak cooked to your choice seasoned with our secret seasoning. Comes with chimichuri suce and potato wedges</small></p>
+</div>
+  
+<div class="dessert"> <input class="quantities" type="number" min="0" style="width: 50px">
+  <p>Ice Cream <span class="price">$8</span><br />
+  <small>Ice Cream made with inside of the storre with variety of flavor of your choices. Chocoloate, Fudge, Vanilla, and Mint Chocolate Chip.</small></p>
+</div>
+<br><br>
+  <input id="Name" placeholder="Your Name">
+  <input id="Email" type="email" placeholder="Your email">
+  <input id="submit" type="submit">
+<br><br>  
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBmuMxs3G9_2BTNuov7PFOeDN8AwnQ6o6c",
+    authDomain: "saifanwebsite3.firebaseapp.com",
+    projectId: "saifanwebsite3",
+    storageBucket: "saifanwebsite3.appspot.com",
+    messagingSenderId: "73596024868",
+    appId: "1:73596024868:web:9da2772a8fbfe12ba6c0b1"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+const Name = document.querySelector("#Name") 
+const Email = document.querySelector("#Email")
+  const prices = document.querySelectorAll(".price")
+document.querySelector('#submit').addEventListener('click', Submit)
+  const quantities = document.querySelectorAll(".quantities")
+const itemsList = ["macaroni and cheese", "steak and wedges", "ice cream"]
+  
+	function Submit() {
+		  const timestamp = buildTimestamp()
+		let total = 0
+  	  let cart = { }
+  	  for  (let i=0; i<quantities.length; i=i+1) {
+  	  	if (quantities[i].value != "0" && quantities[i].value != "") {	
+let price = prices[i].innerHTML.replace('$', '')
+			  total = total + quantities[i].value * price 
+			
+  	  		cart[itemsList[i]] = parseInt(quantities[i].value) 
+  	  	}
+  	  	quantities[i].value = ""
+  	  }
+		
+	  
+		  set(ref(db, timestamp), {
+			  Name: Name.value,
+		      email: Email.value,
+			  cart: cart,
+ totalPrice: total,
+		  paid: "not yet",
+			  
+		  });
+
+		  Name.value = ""
+		  Email.value = ""
+		}
+	
+	
+	function buildTimestamp() {
+			  const now = new Date();
+			  let timestamp = now.getFullYear().toString() + "/";
+			  //const month = now.toLocaleString('default', { month: 'long' });
+
+			  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+			  month = month.toString()
+			  month = addLeadingZero(month)
+			  timestamp += month + "/"; 
+
+			  let date = now.getDate().toString()
+			  date = addLeadingZero(date)
+			  timestamp += date + "/";
+
+			  let hours = now.getHours().toString()
+			  hours = addLeadingZero(hours)
+			  timestamp += hours + ":";
+
+			  let minutes = now.getMinutes().toString()
+			  minutes = addLeadingZero(minutes)
+			  timestamp += minutes + ":";
+
+			  let seconds = now.getSeconds().toString()
+			  seconds = addLeadingZero(seconds)
+			  timestamp += seconds;
+  
+			  return timestamp
+			}
+	
+			function addLeadingZero(units) {
+				if (units.length < 2) {
+					units = "0" + units
+				}
+				return units
+			}
+</script>
+  
+</body>
